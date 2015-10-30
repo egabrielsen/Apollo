@@ -2479,6 +2479,16 @@
 		width: 35%;
 	}
 
+		#header .button {
+			border-color: #49bf9d;
+			color: #49bf9d !important;
+		}
+
+		#header .button:hover {
+			border-color: white;
+			color: white !important;
+		}
+
 		#header strong, #header b {
 			color: black;
 		}

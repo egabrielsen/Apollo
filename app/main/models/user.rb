@@ -5,8 +5,16 @@ class User < Volt::User
   # in config/app.rb
   field login_field
   field :name
+  field :username
+  field :first_name
+  field :last_name
 
   validate login_field, unique: true, length: 8
   validate :email, email: true
+
+  def name
+    name_missing = [first_name, last_name].compact.empty?
+    name_missing ? email : "#{first_name} #{last_name}"
+  end
 
 end
