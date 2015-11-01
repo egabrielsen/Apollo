@@ -2,57 +2,50 @@
   {{ view main_path, "title", {controller_group: 'main'} }}
 
 <:Body>
-  <div class="container">
+{{ if Volt.current_user }}
+  <div class="nav">
+    <div class="nav-center">
+      <li style="float:left; "><a href="/" style="border:none"><img src="../../assets/images/Apollo.jpg" width="200" height="50"/></a></li>
+      <:user_templates:menu />
+      <:nav href="/about">About</:nav>
+    </div>
+  </div>
 
-    <header id="header" style="background-image: url('../../assets/images/banner.jpg')">
-      <ul class="icons">
-        <div class="nav-center">
-					<li><:nav href="/">Home</:nav></li>
-					<li><:nav href="/about">About</:nav></li>
-          <:user_templates:menu />
-        </div>
-			</ul>
-
-      <div class="nav-center" style="margin-top: 50%;">
-        <a class="button" href="/login">Login</a>
-        <a class="button" href="/signup" style="margin-top: 10px">Register</a>
-      </div>
+    <header id="header" style="padding-top: 100px">
+      <ul>
+        <li><a href="#">Uncover</a></li>
+        <li><a href="#">My Collections</a></li>
+      </ul>
 
     </header>
 
-    <!-- <div style="background-image: url('../../assets/images/hands.jpg')" style="position: fixed; float: right">
-      <ul class="icons">
-        <div class="nav-center">
-					<li><:nav href="/">Home</:nav></li>
-					<li><:nav href="/about">About</:nav></li>
-          <:user_templates:menu />
-        </div>
-			</ul>
-    </div> -->
+{{ end }}
+<div class="{{ if Volt.current_user }} container {{ else }} hands {{end}}">
+
 
     <:volt:notices />
+
     <div id="main">
     {{ view main_path, 'body', {controller_group: 'main'} }}
-  </div>
-    <div class="footer">
-      <p>&copy; Company {{ Time.now.year }}</p>
+
+    <!-- <div class="footer" >
+      <p>&copy; Apollo {{ Time.now.year }}</p>
     </div>
+      <ul class="icons">
+        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+        <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+      </ul>
+
+    </div> -->
+
 
   </div>
 
-  <footer id="footer">
-    <ul class="icons">
-      <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-      <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-      <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-      <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-      <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-    </ul>
-  </footer>
+
 
 <:Nav>
-  <li class="{{ if active_tab? }}active{{ end }}">
-    <a href="{{ attrs.href }}">{{ yield }}</a>
+  <li class="{{ if active_tab? }}active{{ end }}" style="float:right">
+    <a class="button" href="{{ attrs.href }}">{{ yield }}</a>
   </li>

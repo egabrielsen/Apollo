@@ -1551,7 +1551,7 @@
 /* Basic */
 
 	body {
-		background: #fff;
+		background: rgba(17, 40, 50, 0.94);
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -2463,31 +2463,20 @@
 /* Header */
 
 	#header {
-		background-color: #1f1815;
-		background-attachment: scroll,								fixed;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-color: rgb(75, 112, 127);
+		/*background-attachment: scroll,								fixed;
+		background-image: url("assets/images/overlay.png"), url("../../assets/images/fulls/05.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
-		background-size: auto,								auto 100%;
+		background-size: auto, auto 100%;*/
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 2em 4em 0 0;
 		position: fixed;
 		text-align: right;
 		top: 0;
-		width: 35%;
+		width: 200px;
 	}
-
-		#header .button {
-			border-color: #49bf9d;
-			color: #49bf9d !important;
-		}
-
-		#header .button:hover {
-			border-color: white;
-			color: white !important;
-		}
 
 		#header strong, #header b {
 			color: black;
@@ -2502,6 +2491,49 @@
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
+		}
+
+		#header ul {
+			padding: 0;
+		}
+
+		#header ul li {
+			padding: 0;
+			/*border-top: 2px solid #49bf9d;*/
+
+		}
+
+		#header ul a {
+			width: 100%;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			background-color: transparent;
+
+			border-top: solid 1px white;
+			border-bottom: solid 1px white;
+			color: white !important;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: 400;
+			height: 3.15em;
+			height: calc(2.75em + 6px);
+			line-height: 2.75em;
+			min-width: 10em;
+			padding: 0 1.5em;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		#header ul a:hover {
+			border-color: #49bf9d;
+			color: #49bf9d !important;
 		}
 
 		#header .image.avatar {
@@ -2557,10 +2589,10 @@
 /* Main */
 
 	#main {
-		margin-left: 35%;
+		margin-left: 5%;
 		max-width: 54em;
 		padding: 8em 4em 4em 4em;
-		width: calc(100% - 35%);
+
 	}
 
 		#main > section {
@@ -2861,7 +2893,7 @@
 
 			#header {
 				padding: 6em 3em 3em 3em;
-				width: 30%;
+				width: 200px;
 			}
 
 				#header h1 {
@@ -3117,8 +3149,73 @@
 
 	}
 
+/*Navigation Bar*/
+
+.nav {
+	width: 100%;
+	position: fixed;
+	background-color: rgb(75, 112, 127);
+	z-index: 1;
+	border-bottom: solid 1px white;
+}
 .nav-center {
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px;
+	width: 100%;
+	text-align: center;
+}
+.nav li {
+	display: inline-block;
+	padding: 10px;
+	border-bottom: none;
+}
+.nav a {
+	border-radius: 0.35em;
+	border: solid 3px #49bf9d;
+	color: white !important;
+}
+
+.nav .active {
+	color: white;
+}
+
+.notices {
+    background-color: blue;
+    position: fixed;
+    width: 600px;
+    top: 80px;
+    left: 50%;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.hands {
+	background-color: rgb(75, 112, 127);
+	background-attachment: scroll,								fixed;
+	background-image: url("assets/images/overlay.png"), url("../../assets/images/hands.jpg");
+	background-position: top left,							top left;
+	background-repeat: repeat,								no-repeat;
+	background-size: 100%;
+	height: 100vh
+}
+.dropdown-menu {
+	display: none;
+	margin-top: 20px;
+	position: absolute;
+	background-color: rgb(75, 112, 127);
+	margin-bottom: 0px;
+	max-width: 150px;
+	min-width: 150px;
+	padding: 0;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+.dropdown-menu li {
+	border-bottom: 1px solid white;
+	display: block;
+}
+.dropdown-menu a {
+	text-align: center;
+	border: none;
+	width: 100%;
 }

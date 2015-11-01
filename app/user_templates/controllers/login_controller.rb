@@ -23,7 +23,7 @@ module UserTemplates
     end
 
     def after_login
-      redirect_to(attrs.post_login_url || '/')
+      redirect_to(attrs.post_login_url || '/landing')
     end
 
     def forgot_url

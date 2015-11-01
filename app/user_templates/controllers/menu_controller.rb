@@ -11,8 +11,25 @@ module UserTemplates
       end
     end
 
+    def drop_down
+      if `$(".dropdown-menu").css("display")` == "none"
+        `$(".dropdown-menu").css("display", "block")`
+      elsif
+        `$(".dropdown-menu").css("display", "none")`
+      end
+    end
+
     def is_active?
       url.path.split('/')[1] == 'login'
     end
+
+    def logout
+      Volt.logout.then do |log|
+        redirect_to "/"
+      end.fail do |errors|
+        flash._notices << errors
+      end
+    end
+
   end
 end

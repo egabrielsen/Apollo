@@ -1,17 +1,14 @@
 # By default Volt generates this controller for your Main component
 module Main
-  class MainController < Volt::ModelController
+  class LandingController < Volt::ModelController
+    before_action :require_login
+    
     def index
       # Add code for when the index view is loaded
-      redirect_to "/login"
     end
 
     def about
       # Add code for when the about view is loaded
-    end
-
-    def main
-
     end
 
     private
